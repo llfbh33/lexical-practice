@@ -18,3 +18,8 @@ If you are developing a production application, we recommend using TypeScript wi
 - Lists work well, however there is a problem with the way that tabbing works, there are trailing bullet points.  I was unable to
     figure out how to fix this with either the lexical plugin or a custom plugin
 - Theming can be added for lists to update the bullet point for each level, not yet included
+
+- code blocks
+- Images
+- Video
+- link trees
