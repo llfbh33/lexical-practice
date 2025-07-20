@@ -1,0 +1,76 @@
+/* Editor Containers */
+.content-editable {
+    width: 100%;
+    height: 300px;
+    border: 1px solid #ccc;
+    border-radius: 0 0 6px 6px;
+    padding: 0 12px;
+    box-sizing: border-box;
+    overflow-y: auto;
+}
+
+.editor-main-content {
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+}
+
+.editor-view-content {
+    height: 500px;
+    width: 100%;
+    padding: 10px;
+    overflow-y: auto;
+    border: 1px solid #ccc;
+}
+
+.editor-inner {
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    height: 100%;
+    gap: 20px;
+    box-sizing: border-box;
+}
+
+.table-of-contents {
+    width: 300px;
+    padding: 10px;
+    box-sizing: border-box;
+}
+
+
+/* Tool Bar Styling */
+.tool-bar {
+    display: flex;
+    flex-direction: row;;
+    border: 1px solid green;
+    width: 100%;
+}
+
+
+/* Button States */
+.active {
+    background-color: #d2d2d2 !important;
+}
+
+.button {
+    height: 40px;
+}
+
+
+/* Text Formating Styles */
+.text-underline {
+  text-decoration: underline;
+}
+
+.text-strikethrough {
+  text-decoration: line-through;
+}
+
+
+.header {
+    display: flex;
+    justify-content: space-between;
+    flex-direction: row;
+    align-items: center;
+}
