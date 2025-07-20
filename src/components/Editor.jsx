@@ -18,6 +18,7 @@ import './Editor.css';
 import { Button, Grid, Link, Tab } from '@mui/material';
 import { LinkPlugin as ReactLinkPlugin } from '@lexical/react/LexicalLinkPlugin'; // <--- IMPORT THIS, aliased to avoid name collision
 import { ListPlugin as ReactListPlugin } from '@lexical/react/LexicalListPlugin';
+import { CheckListPlugin } from '@lexical/react/LexicalCheckListPlugin';
 import { TabIndentationPlugin } from '@lexical/react/LexicalTabIndentationPlugin';
 import { TableOfContentsPlugin as ReactTableOfContentsPlugin } from '@lexical/react/LexicalTableOfContentsPlugin';
 import TOCPlugin from './Plugins/TOCPlugin';
@@ -31,7 +32,19 @@ const theme = {
     text: {
         underline: 'text-underline',
         strikethrough: 'text-strikethrough',
-    }
+    },
+    // --- ADD THESE LIST-RELATED CLASSES ---
+    list: {
+        listitem: 'editor-listitem',
+        nested: {
+            listitem: 'editor-nested-listitem', // For nested items, if you want different styles
+        },
+        ul: 'editor-list-ul', // Class for the <ul> container
+        ol: 'editor-list-ol', // Class for the <ol> container
+        // Classes for Checklists - ESSENTIAL for visual functionality
+        listitemChecked: 'editor-listitem-checked',
+        listitemUnchecked: 'editor-listitem-unchecked',
+    },
 }
 
 // Catch any errors that occur during Lexical updates and log them
@@ -122,7 +135,8 @@ function Editor({ editorState, setEditorState, isEditable, setIsEditable }) {
                     <TreeViewPlugin />  {/* Tree view for debugging and structure visualization */}
                     <ReactLinkPlugin />
                     <ReactListPlugin />
-                    <TabIndentationPlugin />  {/* needed for tabbing in lists, has bugs */}
+                    <CheckListPlugin />  {/* For checklists, allows for checkbox lists */}
+                    {/* <TabIndentationPlugin />  needed for tabbing in lists, has bugs */}
                     {/* <ReactTableOfContentsPlugin >
                         {({ headings, editor }) => { // <--- This is the render prop function
                             console.log('Headings from ReactTableOfContentsPlugin render prop:', headings); // <--- ADD THIS LOG

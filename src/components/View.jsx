@@ -22,6 +22,15 @@ import { ListNode, ListItemNode } from '@lexical/list';
 import TOCPlugin from './Plugins/TOCPlugin';
 
 
+
+
+// FILE IS NO LONGER NECESSARY, CAN OUTPUT VIEW AND EDIT FROM THE SAME COMPONENT
+
+
+
+
+
+
 // This is your example JSON string from the database
 const dbEditorStateString = `{"root":{"children":[{"children":[{"detail":0,"format":0,"mode":"normal","style":"","text":"Hey there how are you doing? ","type":"text","version":1}],"direction":"ltr","format":"left","indent":0,"type":"paragraph","version":1,"textFormat":0,"textStyle":""},{"children":[{"detail":0,"format":0,"mode":"normal","style":"","text":"I am doing pretty well and yourself?","type":"text","version":1}],"direction":"ltr","format":"right","indent":0,"type":"paragraph","version":1,"textFormat":0,"textStyle":""},{"children":[{"detail":0,"format":0,"mode":"normal","style":"","text":"Good indeed, though my ankle is acting up for some reason","type":"text","version":1}],"direction":"ltr","format":"left","indent":0,"type":"paragraph","version":1,"textFormat":0,"textStyle":""},{"children":[{"detail":0,"format":0,"mode":"normal","style":"","text":"I hear you man, my back has been sore for days","type":"text","version":1}],"direction":"ltr","format":"right","indent":0,"type":"paragraph","version":1,"textFormat":0,"textStyle":""},{"children":[{"detail":0,"format":0,"mode":"normal","style":"","text":"Thats rough bro","type":"text","version":1}],"direction":"ltr","format":"left","indent":0,"type":"paragraph","version":1,"textFormat":0,"textStyle":""}],"direction":"ltr","format":"","indent":0,"type":"root","version":1}}`;
 

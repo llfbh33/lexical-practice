@@ -74,3 +74,126 @@
     flex-direction: row;
     align-items: center;
 }
+
+
+/* FOR LISTS */
+/* Editor.css or your main stylesheet */
+
+/* Base List Item Style */
+/* Editor.css - Simplified and corrected for standard list behavior */
+
+/* --- Base List Container Styles --- */
+/* These styles apply to the <ul> and <ol> elements */
+.editor-list-ul,
+.editor-list-ol {
+    margin: 8px 0; /* Standard vertical spacing for lists */
+    padding-left: 20px; /* Indent the entire list container */
+    list-style-position: outside; /* Marker outside the content box - standard */
+}
+
+/* --- List Item Indentation & Markers --- */
+/* Styles for individual <li> elements */
+.editor-listitem {
+    min-height: 20px; /* Ensures lines have minimum height */
+    /* Important: We DON'T set list-style-type: none; here,
+       because the parent UL/OL will dictate the marker. */
+    /* Remove padding-left here if the parent UL/OL handles it. */
+    /* Lexical typically relies on the parent list-style-type to apply markers. */
+}
+
+/* --- NESTED LIST INDENTATION & MARKERS --- */
+/* Control indentation by applying margin-left to nested UL/OL containers */
+/* This is the key to correct indentation without extra bullets */
+.editor-list-ul .editor-list-ul, /* Nested UL inside a UL */
+.editor-list-ul .editor-list-ol, /* Nested OL inside a UL */
+.editor-list-ol .editor-list-ul, /* Nested UL inside an OL */
+.editor-list-ol .editor-list-ol { /* Nested OL inside an OL */
+    margin-left: 20px; /* Standard indentation for subsequent levels */
+}
+
+/* --- OPTIONAL: DIFFERENT BULLET TYPES FOR NESTED LISTS --- */
+/* These change the *type* of marker for subsequent levels of ULs and OLs */
+.editor-list-ul .editor-list-ul { /* 2nd level UL */
+    list-style-type: circle;
+}
+.editor-list-ul .editor-list-ul .editor-list-ul { /* 3rd level UL */
+    list-style-type: square;
+}
+.editor-list-ul .editor-list-ul .editor-list-ul .editor-list-ul { /* 4th level UL */
+    list-style-type: disc; /* Resets to disc or you can define more */
+}
+
+.editor-list-ol .editor-list-ol { /* 2nd level OL */
+    list-style-type: lower-alpha; /* a, b, c... */
+}
+.editor-list-ol .editor-list-ol .editor-list-ol { /* 3rd level OL */
+    list-style-type: lower-roman; /* i, ii, iii... */
+}
+.editor-list-ol .editor-list-ol .editor-list-ol .editor-list-ol { /* 4th level OL */
+    list-style-type: decimal; /* Resets to decimal or define more */
+}
+
+
+/* --- CHECKLIST SPECIFIC STYLES --- */
+/* These styles are robust and remove default list markers for checklist items */
+.editor-listitem-checked,
+.editor-listitem-unchecked {
+    list-style-type: none; /* Crucial: Remove default marker for checklist items */
+    position: relative;
+    padding-left: 25px; /* Space for custom checkbox */
+    min-height: 20px;
+    display: flex; /* Use flexbox to align checkbox and text */
+    align-items: flex-start; /* Align content with the top of the checkbox */
+}
+
+/* Style for the actual checkbox (the input element Lexical generates) */
+.editor-listitem-checked::before,
+.editor-listitem-unchecked::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 3px; /* Adjust vertical alignment */
+    width: 16px;
+    height: 16px;
+    border: 1px solid #ccc;
+    border-radius: 3px;
+    background-color: #fff;
+    cursor: pointer;
+    box-sizing: border-box;
+}
+
+/* Visuals for UNCHECKED state */
+.editor-listitem-unchecked::before {
+    background-color: #fff;
+    border-color: #999;
+}
+
+/* Visuals for CHECKED state */
+.editor-listitem-checked::before {
+    background-color: #4CAF50;
+    border-color: #4CAF50;
+    content: '✔'; /* Checkmark symbol */
+    color: white;
+    font-size: 12px;
+    text-align: center;
+    line-height: 15px; /* Center checkmark vertically */
+}
+
+/* Optional: Strikethrough for checked text */
+.editor-listitem-checked span { /* Target the span that holds the text content */
+    text-decoration: line-through;
+    color: #888;
+}
+
+/* Ensure the text content within the list item aligns */
+.editor-listitem-checked > span,
+.editor-listitem-unchecked > span,
+.editor-listitem > span { /* Apply to all list item text spans */
+    display: block;
+    flex-grow: 1;
+}
+
+/* Hide line breaks (if any) within list items to prevent extra space */
+.editor-listitem .LexicalLineBreakNode {
+    display: none;
+}

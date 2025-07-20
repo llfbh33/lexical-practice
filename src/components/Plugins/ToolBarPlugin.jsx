@@ -86,9 +86,17 @@ const ToolbarPlugin = () => {
         if (listItemNode) { // If we found a ListItemNode, we are inside a list.
             const listNode = listItemNode.getParent(); // This will be the <ul> or <ol>
             if ($isListNode(listNode)) { // Double check it's a valid list parent
-                currentActiveListTypeForButtons = listNode.getTag(); // Get 'ul' or 'ol'
-                // console.log('currentActiveListType', currentActiveListTypeForButtons); // This should now log!
+                // console.log(listItemNode.getChecked());
+                const isCheckItem = listItemNode.getChecked();
+                // console.log('isCheckItem', isCheckItem);
+
+                if (isCheckItem !== null) {
+                    currentActiveListTypeForButtons = 'checklist'; // If it's a checklist item
+                } else {
+                    currentActiveListTypeForButtons = listNode.getTag(); // Get 'ul' or 'ol'
+                };
             }
+            // console.log('currentActiveListTypeForButtons', currentActiveListTypeForButtons);
             // When in a list, the main heading dropdown should typically revert to 'p'
             currentBlockTypeForDropdown = 'p';
         } else {

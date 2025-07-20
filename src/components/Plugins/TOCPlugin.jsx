@@ -5,6 +5,11 @@ import { $getRoot } from 'lexical';
 import { $isHeadingNode } from '@lexical/rich-text';
 // ... (other imports like $createRangeSelection, $setSelection)
 
+
+// there is a lexicalTableOfContents plugin, but it has bugs currently and not working properly,
+// was able to quickly wrap together a custom one with help of genini.  Need to review it more later
+
+
 const TOCPlugin = ({ inputEditor }) => {
     
     let editorInstance = inputEditor 
@@ -13,7 +18,7 @@ const TOCPlugin = ({ inputEditor }) => {
         editorInstance = contextEditor;
       }
 
-    console.log('editorInstance', editorInstance);
+    // console.log('editorInstance', editorInstance);
     const [tocHeadings, setTocHeadings] = useState([]);
     // Use a ref to store the latest headings for comparison, avoiding it as a useEffect dependency
     const latestTocHeadingsRef = useRef([]); // <--- NEW REF
@@ -66,14 +71,14 @@ const TOCPlugin = ({ inputEditor }) => {
 
     const scrollToHeading = useCallback((key) => {
         const domElement = editorInstance.getElementByKey(key);
-        console.log('domElement', domElement);
+        // console.log('domElement', domElement);
         if (domElement) {
           
             domElement.scrollIntoView({ behavior: 'smooth', block: 'start' });
         }
     }, [editorInstance]);
 
-    console.log('tocHeadings', tocHeadings);
+    // console.log('tocHeadings', tocHeadings);
 
     return (
         <nav>
