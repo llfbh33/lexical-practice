@@ -40,6 +40,8 @@ import LinkPlugin from './LinkPlugin';
 import ImagePlugin from './ImagePlugin';
 import ListPlugin from './ListPlugin';
 import { HeadingNode, $createHeadingNode, $isHeadingNode } from '@lexical/rich-text';
+import VideoPlugin from './VideoPlugin';
+import YouTubePlugin from './YouTubePlugin';
 // import FormatListBulletedIcon from '@mui/icons-material/FormatListBulleted';
 
 
@@ -331,6 +333,8 @@ const ToolbarPlugin = () => {
             <Divider orientation='vertical' flexItem />
             <LinkPlugin isLink={isLink} setIsLink={setIsLink} />
             <ImagePlugin />
+            <VideoPlugin />
+            <YouTubePlugin />
             <Divider orientation='vertical' flexItem />
             <HeadingPlugin heading={heading} setHeading={setHeading} />
         </Paper>

@@ -23,3 +23,8 @@ If you are developing a production application, we recommend using TypeScript wi
 - Images
 - Video
 - link trees
+
+
+check lists are working funky
+need to click enter to escape lists
+links dont stay in line in a list

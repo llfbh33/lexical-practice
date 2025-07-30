@@ -23,6 +23,9 @@ import { TabIndentationPlugin } from '@lexical/react/LexicalTabIndentationPlugin
 import { TableOfContentsPlugin as ReactTableOfContentsPlugin } from '@lexical/react/LexicalTableOfContentsPlugin';
 import TOCPlugin from './Plugins/TOCPlugin';
 import EditorEditableControlPlugin from './Plugins/EditorEditableControlPlugin';
+import { ImageNode } from './Nodes/ImageNode';
+import { VideoNode } from './Nodes/VideoNode';
+import { YouTubeNode } from './Nodes/YouTubeNode';
 
 
 
@@ -82,6 +85,9 @@ function Editor({ editorState, setEditorState, isEditable, setIsEditable }) {
         ListItemNode,
         HeadingNode,
         LinkNode,
+        ImageNode,
+        VideoNode,
+        YouTubeNode, 
     ];
 
     const initialConfig = {
@@ -132,7 +138,7 @@ function Editor({ editorState, setEditorState, isEditable, setIsEditable }) {
                     <HotkeyPlugin />  {/* Custom hotkeys for formatting */}
                     <HistoryPlugin />  {/* Undo/Redo functionality, ctrl + z / y */}
                     <AutoFocusPlugin />  {/* Automatically focuses the editor when it mounts */}
-                    <TreeViewPlugin />  {/* Tree view for debugging and structure visualization */}
+                     <TreeViewPlugin />  {/*Tree view for debugging and structure visualization */}
                     <ReactLinkPlugin />
                     <ReactListPlugin />
                     <CheckListPlugin />  {/* For checklists, allows for checkbox lists */}
